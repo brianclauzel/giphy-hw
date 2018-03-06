@@ -1,0 +1,24 @@
+#giphy-form {
+    margin: 10px;
+}
+
+#gif-view {
+    height: 300px;
+    width: 100%;
+    background: gray;
+}
+
+#gif {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#buttons-view {
+    width: 100%;
+    height: 75px;
+    background: rgb(34, 34, 34);
+}
+
+.food {
+    margin: 5px;
+}
