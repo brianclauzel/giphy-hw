@@ -3,7 +3,7 @@
 }
 
 #gif-view {
-    height: 300px;
+    height: 100%;
     width: 100%;
     background: gray;
 }
@@ -21,4 +21,10 @@
 
 .food {
     margin: 5px;
+}
+
+.stuff {
+    height: 100px;
+    width: 100px;
+    margin: 30px;
 }

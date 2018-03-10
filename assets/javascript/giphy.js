@@ -6,6 +6,7 @@ $(document).ready(function() {
 //create array of different types of food that will be turned into buttons
 var foods = ["bacon", "breakfast", "cheeseburger", "doughnuts", "hot dogs", "ice cream", "pizza", "taco", "sushi", "pasta", "banana", "cookie", "broccoli", "burrito", "french fries", "pie"];
 
+
 //function to fill the clicked, or typed item into the url api
 
 function displayFoodGif() {
@@ -17,13 +18,36 @@ $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function(response) { 
-    // if (gif === gif) {
-    $("#gif-view").append("<img class='stuff' src='" + response.data[0].images["480w_still"].url + "'>");
-    $(".stuff").on("click", function (){
-        $(this).replaceWith("<img class='stuff' src='" + response.data[0].images.original.url + "'>");
-    });
-// }
+    var image = {
+        1: $("<img class='stuff' src='" + response.data[0].images["480w_still"].url + "'>"),
+        2: $("<img class='stuff' src='" + response.data[1].images["480w_still"].url + "'>"),
+        3: $("<img class='stuff' src='" + response.data[2].images["480w_still"].url + "'>"),
+        4: $("<img class='stuff' src='" + response.data[3].images["480w_still"].url + "'>"),
+        5: $("<img class='stuff' src='" + response.data[4].images["480w_still"].url + "'>"),
+    };
 
+    var animate = {
+        1: $("<img class='stuff' src='" + response.data[0].images.original.url + "'>"),
+        2: $("<img class='stuff' src='" + response.data[1].images.original.url + "'>"),
+        3: $("<img class='stuff' src='" + response.data[2].images.original.url + "'>"),
+        4: $("<img class='stuff' src='" + response.data[3].images.original.url + "'>"),
+        5: $("<img class='stuff' src='" + response.data[4].images.original.url + "'>"),
+    };
+    // if (gif === gif) {
+    $("#gif-view").prepend(image["1"]);
+    $("#gif-view").prepend(image["2"]);
+    $("#gif-view").prepend(image["3"]);
+    $("#gif-view").prepend(image["4"]);
+    $("#gif-view").prepend(image["5"]);
+    
+    $(".stuff").on("click", function (){
+        $(image["1"]).replaceWith(animate["1"]);
+        $(image["2"]).replaceWith(animate["2"]);
+        $(image["3"]).replaceWith(animate["3"]);
+        $(image["4"]).replaceWith(animate["4"]);
+        $(image["5"]).replaceWith(animate["5"]);
+    })
+// 5
 
     // $("#gif-view").append("<img class='stuff' src='" + response.data[1].images["480w_still"].url + "'>");
     // $("#gif-view").append("<img class='stuff' src='" + response.data[2].images["480w_still"].url + "'>");
